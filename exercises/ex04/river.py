@@ -8,8 +8,9 @@ from exercises.ex04.bear import Bear
 
 
 class River:
-    num_fish: int
-    num_bears: int
+    day: int
+    bears: list[Bear]
+    fish: list[Fish]
 
     def __init__(self, num_fish: int, num_bears: int):
         """New River with num_fish Fish and num_bears Bears"""
@@ -18,9 +19,9 @@ class River:
         self.bears: list[Bear] = []
         # populate the river with fish and bears
         for _ in range(0, num_fish):
-            self.fish.append(Fish())
+            self.fish.append(Fish(0))
         for _ in range(0, num_bears):
-            self.bears.append(Bear())
+            self.bears.append(Bear(0, 0))
 
     def check_ages(self):
         self.fish = [fish for fish in self.fish if fish.age <= 3]
@@ -46,14 +47,14 @@ class River:
         new_fish = (len(self.fish) // 2) * 4
 
         for _ in range(new_fish):
-            self.fish.append(Fish())
+            self.fish.append(Fish(0))
         return None
 
     def repopulate_bears(self):
         new_bears = len(self.bears) // 2
 
         for _ in range(new_bears):
-            self.bears.append(Bear())
+            self.bears.append(Bear(0, 0))
         return None
 
     def view_river(self):
